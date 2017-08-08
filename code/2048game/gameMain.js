@@ -1,22 +1,13 @@
-/**
- * 游戏内容主方块储存以及一些方法
- */
-function cosineCube(){
-    var orginNum = [2, 4];
-    var bol = orginNum[Math.floor(Math.random()*orginNum.length)];
-    this.num = bol;
-}
-cosineCube.prototype = {
-    constructor: cosineCube,
-    isBigger: function(){
-        console.log('isbigger:'+this.num)
-    }
-}
+
+
 var cubes = [];
-for(var i=0; i<5 ; i++){
-    var cube = new cosineCube();
-    cube.isBigger();
-    cubes.push(cube)
+for(var row = 1; row < 5; row++){
+    for(var col = 1; col < 5; col++){
+        var cube = new cosineCube(0,row,col);
+        cube.sayProperty();
+        cubes.push(cube)
+    }
+
 }
 // /**
 //  * 主流程
