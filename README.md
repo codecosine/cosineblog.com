@@ -1,6 +1,6 @@
 # vue-ghpages-blog
+基于[vue-ghpages-blog](https://github.com/viko16/vue-ghpages-blog)进行一定的个性化改变
 
-[![Join the chat at https://gitter.im/viko16/vue-ghpages-blog][gitter-image]][gitter-url]
 [![GitHub release][github-release-image]][github-release-url]
 [![JavaScript Style Guide][standardjs-image]][standardjs-url]
 [![Travis][travis-image]][travis-url]
@@ -10,21 +10,15 @@
 
 一个依赖 GitHub Pages，无需本地生成的静态博客，使用了 Vue.js 2 组件开发，webpack 3 打包。
 
-![Post Screenshots](https://cloud.githubusercontent.com/assets/5064777/19349059/a815395c-9183-11e6-97c3-56514acf0f1d.png)
 
 ## Features
 
 - Vue 2 / Vue-router / axios
 - webpack 3 / Babel 6 / Stylus
-- No need to generate locally ( now using [TravisCI](https://travis-ci.org) )
+- using [TravisCI](https://travis-ci.org)
 - Hosting on GitHub Pages
 - SessionStorage cache
 
-## Demo
-
-http://ukn.me
-
-## Develop
 
 **Note:** `src/config.js` points the configurations of my personal blog. **If you fork this repository, modify it first.**  😳
 
@@ -37,10 +31,6 @@ npm run dev
 npm test
 ```
 
-## Vue 1.x version
-
-For the Vue 1.x version, please see the [vue-1 branch](https://github.com/viko16/vue-ghpages-blog/tree/vue-1). 
-
 ## About My Workflow
 - All the posts are stored in [viko16/writings](https://github.com/viko16/writings), while [`src/config.js`](src/config.js) points it.
 - When I push the code to `develop` branch, [TravisCI](.travis.yml) will deploy `gh-pages` automatically.
@@ -48,8 +38,6 @@ For the Vue 1.x version, please see the [vue-1 branch](https://github.com/viko16
 ## License
 
 MIT © [viko16](https://github.com/viko16)
-
-
 [gitter-image]: https://badges.gitter.im/viko16/vue-ghpages-blog.svg
 [gitter-url]: https://gitter.im/viko16/vue-ghpages-blog?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
 [github-release-image]: https://img.shields.io/github/release/viko16/vue-ghpages-blog.svg?style=flat
