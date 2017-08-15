@@ -28,13 +28,12 @@ before_script:
   - git clone --branch gh-pages https://${GH_REF} dist
 
 script:
-  - npm test
+  # - npm test
 
 after_success:
   - npm run build
   - cd dist
   - echo "codecosine.win" > CNAME
-  - cp index.html 404.html
   - git add --all .
   - git commit --message "Automatically update from travis-ci"
   - git push --quiet "https://${GH_TOKEN}@${GH_REF}" gh-pages:gh-pages
@@ -42,5 +41,4 @@ after_success:
 env:
   global:
     - GH_REF: github.com/codecosine/cosineblog.com.git
-    github.com/viko16/vue-ghpages-blog.git
     - GH_TOKEN: 1544ddc14910a3f69b1edf3c111bbbb33c38b853
