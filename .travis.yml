@@ -1,0 +1,46 @@
+branches:
+  only:
+    - blog
+
+language: node_js
+
+sudo: false
+
+node_js: stable
+
+cache:
+  directories:
+    - node_modules
+
+addons:
+  apt:
+    packages:
+      - xvfb
+
+install:
+  - export DISPLAY=':99.0'
+  - Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &
+  - npm install
+
+before_script:
+  - git config --global user.name "codecosine"
+  - git config --global user.email "846400886@qq.com"
+  - git clone --branch gh-pages https://${GH_REF} dist
+
+script:
+  - npm test
+
+after_success:
+  - npm run build
+  - cd dist
+  - echo "codecosine.win" > CNAME
+  - cp index.html 404.html
+  - git add --all .
+  - git commit --message "Automatically update from travis-ci"
+  - git push --quiet "https://${GH_TOKEN}@${GH_REF}" gh-pages:gh-pages
+
+env:
+  global:
+    - GH_REF: github.com/codecosine/cosineblog.com.git
+    github.com/viko16/vue-ghpages-blog.git
+    - GH_TOKEN: 1544ddc14910a3f69b1edf3c111bbbb33c38b853
