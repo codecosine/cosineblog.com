@@ -19,7 +19,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/viko16/vue-ghpages-blog.git"
+    "url": "git+https://github.com/codecosine/cosineblog.com.git"
   },
   "keywords": [
     "blog",
@@ -27,12 +27,8 @@
     "vuejs",
     "webpack"
   ],
-  "author": "viko16 (https://github.com/viko16)",
+  "author": "codecosine",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/viko16/vue-ghpages-blog/issues"
-  },
-  "homepage": "https://github.com/viko16/vue-ghpages-blog#readme",
   "devDependencies": {
     "babel-core": "^6.0.0",
     "babel-loader": "^7.0.0",
