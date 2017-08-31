@@ -22,13 +22,10 @@ install:
   - Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &
   - npm install
 
-before_script:
+script:
   - git config --global user.name "codecosine"
   - git config --global user.email "846400886@qq.com"
   - git clone --branch gh-pages https://${GH_REF} dist
-
-script:
-  # - npm test
 
 after_success:
   - npm run build
