@@ -2,13 +2,13 @@ module.exports = {
   /**
    * Output
    */
-  blogTitle: 'Unknow Me',
+  blogTitle: 'Cosine 宵咖',
   favicon: './static/favicon.png',
 
   /**
    * API
    */
-  repo: 'viko16/writings', // Which repository you stored the posts
-  path: 'posts',
+  repo: 'codecosine/writingSource', // Which repository you stored the posts
+  path: '每日专题',
   branch: 'master'
 }
