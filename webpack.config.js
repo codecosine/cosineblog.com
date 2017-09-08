@@ -31,17 +31,17 @@ const config = {
   module: {
     rules: [
       // preLoaders
-      {
-        test: /\.(js|vue)$/,
-        enforce: 'pre',
-        use: [{
-          loader: 'eslint-loader',
-          options: {
-            formatter: require('eslint-friendly-formatter')
-          }
-        }],
-        include: [resolve('src'), resolve('test')]
-      },
+      // {
+      //   test: /\.(js|vue)$/,
+      //   enforce: 'pre',
+      //   use: [{
+      //     loader: 'eslint-loader',
+      //     options: {
+      //       formatter: require('eslint-friendly-formatter')
+      //     }
+      //   }],
+      //   include: [resolve('src'), resolve('test')]
+      // },
       // Loaders
       {
         test: /\.vue$/,
@@ -49,13 +49,17 @@ const config = {
           loader: 'vue-loader',
           options: {
             loaders: {
-              stylus: ExtractTextPlugin.extract({
-                use: 'css-loader?{"minimize":{"discardComments":{"removeAll":true}}}!stylus-loader',
+              less: ExtractTextPlugin.extract({
+                use: 'css-loader?{"minimize":{"discardComments":{"removeAll":true}}}!less-loader',
                 fallback: 'vue-style-loader'
               })
             }
           }
         }
+      },
+      {
+        test: /\.less$/,
+        loader: 'style-loader!css-loader!less-loader'
       },
       {
         test: /\.js$/,
@@ -99,7 +103,7 @@ const config = {
     compress: true,
     contentBase: resolve('static'),
     historyApiFallback: true,
-    host: '0.0.0.0',
+    host: '127.0.0.1',
     noInfo: true
   },
   devtool: isProd ? '#cheap-module-source-map' : '#eval-source-map'
@@ -109,7 +113,8 @@ const config = {
 if (isProd) {
   config.plugins = (config.plugins || []).concat([
     new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify('production')
+      // 'process.env.NODE_ENV': JSON.stringify('production')
+      'process.env.NODE_ENV': process.env.NODE_ENV
     }),
     new webpack.optimize.UglifyJsPlugin({
       compress: {

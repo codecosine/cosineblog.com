@@ -1,19 +1,22 @@
 <template>
   <div id='app'>
     <header class="header">
-      <router-link to="/">{{ title }}</router-link>
-      <div style="clear: both"></div>
-      <search-bar v-if="isPageList"></search-bar>
+      <router-link to="/">{{ headerTitle }}</router-link>
+      <search-bar class="searchBar" v-if="isPageList"></search-bar>
+      <div class="des">
+        <p class="description">{{ description }}</p>
+      </div>
+      <navMenu :menu="menuConf" ></navMenu>
     </header>
     <router-view></router-view>
     <footer-bar></footer-bar>
   </div>
 </template>
 
-<style lang="stylus" src="./style/index.styl"></style>
-
 <script>
+  import './style/style.less'
   import conf from './config'
+  import navMenu from './components/navMenu.vue'
   import footerBar from './components/footerBar.vue'
   import searchBar from './components/searchBar.vue'
 
@@ -22,10 +25,18 @@
 
     data () {
       return {
-        title: conf.blogTitle
+        headerTitle: conf.headerTitle,
+        description: conf.description,
+        menuConf: (function () {
+          return Object.keys(conf.menu).map(key => {
+            return {
+              label: conf.menu[key],
+              link: '/' + key
+            }
+          })
+        })()
       }
     },
-
     computed: {
       isPageList () {
         return this.$route.name === 'list'
@@ -33,6 +44,7 @@
     },
 
     components: {
+      navMenu,
       footerBar,
       searchBar
     }

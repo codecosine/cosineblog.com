@@ -51,6 +51,7 @@
         window.document.title = conf.blogTitle
         api.getList()
           .then(lists => {
+            console.log(lists);
             this.loading = false
             this.lists = lists
           })

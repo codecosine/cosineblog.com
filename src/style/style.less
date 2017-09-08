@@ -1,0 +1,96 @@
+@import '~normalize.css';
+@import '~prismjs/themes/prism.css';
+
+// @fontFamily = "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;
+
+// @monospaceFontFamily = "Ubuntu Mono" ,"PT Mono", Consolas, Monaco, Menlo, monospace;
+@fontSize : 14px;
+@bgColor : #fff;
+@textColor : #555;
+@linkColor : #08c;
+@metaColor : #888;
+@codeBgColor : #f7f7f7;
+
+// common
+a {
+    text-decoration: none;
+    color:@linkColor;
+    overflow-wrap:break-word;
+    word-break:break-all;
+}
+
+
+// shared
+#app {
+    padding: 0 60px;
+    max-width: 1150px;
+    margin: 0 auto;
+}
+body{
+    font-size: 14px;
+    background: @bgColor;
+    
+}
+header {
+    padding: 58px 0 0;
+    text-align: left;
+    border-bottom: 1px solid rgb(225, 228, 232);
+    position: relative;
+    font-family: ff-tisa-web-pro, Cambria, "Times New Roman", Georgia, Times, sans-serif;
+    a {
+        font-size: @fontSize + 20 ;
+        font-weight: 600;
+        color:@textColor;
+    }
+    .des{
+        margin-bottom: 10px;
+    }
+    .description {
+        margin: .2em 0 0;
+        color: #999;
+    }
+    .searchBar{
+        position: absolute;
+        right: 0;
+    }
+}
+.footer {
+    margin-bottom:15px;
+    text-align:center;
+    color:@metaColor;
+    a {
+       color:@metaColor;
+       text-decoration:underline
+    }
+}
+
+// List view 
+
+.list-view {
+    margin:0 20px
+}
+ol,ul {
+    padding:0;
+    list-style:none;
+}
+.list-item {
+    position:relative;
+    margin-bottom:50px;
+}
+.item-title{
+    display:inline-block;
+    margin-bottom:10px;
+    font-size:@fontSize + 2;
+    color:@textColor;
+    &:hover{
+        color:@linkColor
+    }
+}
+.item-date{
+    display:inline-block;
+    font-size:@fontSize - 2;
+    color:@metaColor;
+    border-top: 1px solid #ddd;
+    padding-top: 12px;
+    
+}
