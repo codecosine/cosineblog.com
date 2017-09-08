@@ -9,6 +9,6 @@ module.exports = {
    * API
    */
   repo: 'codecosine/writingSource', // Which repository you stored the posts
-  path: '每日专题',
+  path: 'DailyTopic',
   branch: 'master'
 }

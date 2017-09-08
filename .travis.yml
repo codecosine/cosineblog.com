@@ -38,4 +38,4 @@ after_success:
 env:
   global:
     - GH_REF: github.com/codecosine/cosineblog.com.git
-    - GH_TOKEN: 523729caf97830c0c5238289f9bd82b86f0bb0ac
+    - GH_TOKEN: 7998252ae64f31fe8c25d4750cd5d0f876c9b771d
