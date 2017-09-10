@@ -1,9 +1,5 @@
 module.exports = {
-  /**
-   * Output
-   */
   headerTitle: '余弦',
-  blogTitle: '余弦',
   description: '理能顿悟,事需渐修',
   favicon: './static/favicon.png',
   menu: {
@@ -17,5 +13,6 @@ module.exports = {
    */
   repo: 'codecosine/writingSource', // Which repository you stored the posts
   path: 'DailyTopic',
+  paths: ['DailyTopic', 'PostSeries', 'Essay'],
   branch: 'master'
 }

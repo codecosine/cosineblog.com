@@ -20,14 +20,12 @@
 
   export default {
     name: 'listView',
-
     data () {
       return {
         lists: [],
         loading: true
       }
     },
-
     computed: {
       filteredList () {
         let keyword = ''
@@ -40,16 +38,26 @@
           .sort((itemA, itemB) => (new Date(itemB.date) - new Date(itemA.date)))
       }
     },
-
     created () {
-      this.loadList()
+      this.loadHome()
     },
-
     methods: {
-      loadList () {
+      loadHome () {
         this.loading = true
-        window.document.title = conf.blogTitle
-        api.getList()
+        api.getHomeList()
+          .then(lists => {
+            console.log(lists);
+            this.loading = false
+            this.lists = lists
+          })
+          .catch(err => {
+            this.loading = false
+            console.error(err)
+          })
+      },
+      loadListByPath (path) {
+        this.loading = true
+        api.getListByKey([path])
           .then(lists => {
             console.log(lists);
             this.loading = false

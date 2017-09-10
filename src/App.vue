@@ -42,11 +42,13 @@
         return this.$route.name === 'list'
       }
     },
-
     components: {
       navMenu,
       footerBar,
       searchBar
+    },
+    mounted(){
+      window.document.title = conf.headerTitle
     }
   }
 </script>

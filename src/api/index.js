@@ -8,11 +8,11 @@ import { onlyTitle, onlyDate } from '../utils'
  * Format GitHub Api url for content list
  * @returns {string}
  */
-function getListUrl () {
+function getListUrl (path) {
   // @see https://developer.github.com/v3/repos/contents/#get-contents
   // @example https://api.github.com/repos/viko16/vue-ghpages-blog/contents/markdown?ref=markdown
   let url = `https://api.github.com/repos/${conf.repo}/contents/`
-  if (conf.path) url += conf.path
+  if (path) url += path
   if (conf.branch) url += `?ref=${conf.branch}`
   return url
 }
@@ -42,32 +42,43 @@ const Cache = {
     return Boolean(window.sessionStorage && window.sessionStorage.hasOwnProperty(key))
   }
 }
-
+function getList (key) {
+  if (Cache.has(key)) {
+    // Read from cache
+    return Promise.resolve(Cache.get(key))
+  } else {
+    return axios.get(getListUrl(key)).then(res => {
+      Cache.set(key, res.data)
+      return res.data
+    }).catch(err => {
+      console.error(err)
+    })
+  }
+}
 export default {
-
-  getList () {
-    if (Cache.has('list')) {
-      // Read from cache
-      return Promise.resolve(Cache.get('list'))
-    } else {
-      return axios.get(getListUrl())
-        .then(res => res.data)
-        .then(arr => {
-          // Data cleaning
-          const list = arr.map(({name, sha, size}) => ({
-            title: onlyTitle(name),
-            date: onlyDate(name),
-            sha,
-            size
-          }))
-          // Save into cache
-          Cache.set('list', list)
-          // ..then return
-          return list
-        })
-    }
+  getHomeList () {
+    return this.getListByKey(conf.paths)
   },
-
+  getListByKey (keys) {
+    if (!keys) {
+      return false
+    }
+    var promises = keys.map(key => getList(key))
+    return Promise.all(promises).then(data => {
+      // Data cleaning
+      var list = []
+      data.forEach(ele => {
+        var arr = ele.map(({name, sha, size}) => ({
+          title: onlyTitle(name),
+          date: onlyDate(name),
+          sha,
+          size
+        }))
+        Array.prototype.push.apply(list, arr)
+      })
+      return list
+    })
+  },
   getDetail (hash) {
     const httpOpts = {
       // https://developer.github.com/v3/media/#raw-1
