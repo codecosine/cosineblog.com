@@ -8,11 +8,7 @@ module.exports = {
     'PostSeries': '文章',
     'Essay': '随笔'
   },
-  /**
-   * API
-   */
-  repo: 'codecosine/writingSource', // Which repository you stored the posts
-  path: 'DailyTopic',
-  paths: ['DailyTopic', 'PostSeries', 'Essay'],
+  repo: 'codecosine/writingSource',
+  path: 'posts',
   branch: 'master'
 }

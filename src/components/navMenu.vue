@@ -8,6 +8,21 @@
   </div>
 </template>
 
+<script>
+  export default {
+    props: ['menu'],
+    data() {
+      return {
+          currentIndex: 0
+      }
+    },
+    methods: {
+        changeMenu(index){
+            this.currentIndex = index
+        }
+    }
+  }
+</script>
 <style lang="less">
 #navMenu {
     // margin: 10px 0 -1px;
@@ -35,19 +50,3 @@
     }
 }
 </style>
-
-<script>
-  export default {
-    props: ['menu'],
-    data() {
-      return {
-          currentIndex: 0
-      }
-    },
-    methods: {
-        changeMenu(index){
-            this.currentIndex = index
-        }
-    }
-  }
-</script>

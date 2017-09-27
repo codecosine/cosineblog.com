@@ -86,6 +86,7 @@
     "prismjs": "^1.5.1",
     "timeago.js": "^3.0.0",
     "vue": "^2.2.6",
-    "vue-router": "^2.0.0"
+    "vue-router": "^2.0.0",
+    "vuex": "^2.4.0"
   }
 }

@@ -13,11 +13,6 @@ const routes = [
     component: ListView
   },
   {
-    path: '/home',
-    name: 'home',
-    component: ListView
-  },
-  {
     path: '/post/:hash',
     name: 'post',
     component: PostView

@@ -20,59 +20,13 @@
 
   export default {
     name: 'listView',
-    data () {
-      return {
-        lists: [],
-        loading: true
-      }
-    },
-    computed: {
-      filteredList () {
-        let keyword = ''
-        if (this.$route) {
-          keyword = (this.$route.query.q || '').toLowerCase()
-        }
-        // Filter by title, Order by publish date, desc
-        return this.lists
-          .filter(item => (item.title.toLowerCase().indexOf(keyword) !== -1))
-          .sort((itemA, itemB) => (new Date(itemB.date) - new Date(itemA.date)))
-      }
-    },
-    created () {
-      this.loadHome()
-    },
-    methods: {
-      loadHome () {
-        this.loading = true
-        api.getHomeList()
-          .then(lists => {
-            console.log(lists);
-            this.loading = false
-            this.lists = lists
-          })
-          .catch(err => {
-            this.loading = false
-            console.error(err)
-          })
+    computed:{
+      filteredList(){
+        return this.$store.getters.list
       },
-      loadListByPath (path) {
-        this.loading = true
-        api.getListByKey([path])
-          .then(lists => {
-            console.log(lists);
-            this.loading = false
-            this.lists = lists
-          })
-          .catch(err => {
-            this.loading = false
-            console.error(err)
-          })
+      loading(){
+        return this.$store.getters.list.length == 0
       }
     },
-
-    watch: {
-      '$route': 'loadList'
-    }
-
   }
 </script>
