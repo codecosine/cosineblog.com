@@ -1,9 +1,9 @@
 <template>
   <div id='app'>
     <header class="header">
-      <router-link to="/">{{ headerTitle }}</router-link>
-      <div class="des">
-        <p class="description">{{ description }}</p>
+      <div class="site-name">
+          <router-link to="/">{{ headerTitle }}</router-link>
+          <p class="description">{{ description }}</p>
       </div>
       <navMenu :menu="menuConf" ></navMenu>
     </header>
@@ -34,11 +34,17 @@
     },
     computed: {
       menuConf(){
-        return this.$store.getters.topics.map(({name, sha}) => ({ 
+        var menu = this.$store.getters.topics.map(({name, sha}) => ({ 
           label: conf.menu[name] || name,
           name,
           sha,
         }))
+        menu.unshift({
+          label: '首页',
+          name: 'home',
+          sha: 'home'
+        })
+        return menu
       }
     },
     mounted(){

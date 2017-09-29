@@ -1,17 +1,32 @@
 <template>
+<div class="layout">
   <section class="list-view">
-    <div class="loading" v-if="loading">loading..</div>
-    <div class="no-content" v-else-if="filteredList.length === 0">nothing..</div>
-    <ol v-else class="list">
+    <div class="loading" v-if="loading">
+      <div class="loader-inner ball-grid-pulse">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+    <ol class="list">
       <li v-for="{ title, sha, date } in filteredList" :key="sha" class="list-item">
-        <router-link :to="'/post/' + sha" class="item-title">
-          {{ title }}
-        </router-link>
+        <router-link :to="'/post/' + sha" class="item-title">{{ title }}</router-link>
         <br>
         <time pubdate="pubdate" :datetime="date | formatDate" :title="date | formatDate" class="item-date">{{ date | timeago }}</time>
       </li>
     </ol>
   </section>
+  <section class="list-tree">
+
+  </section>
+</div>
+  
 </template>
 
 <script>

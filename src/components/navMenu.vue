@@ -1,5 +1,5 @@
 <template>
-  <div id="navMenu">
+  <div class="navMenu">
       <li v-bind:class="{ current: currentIndex == index }"
          @click="changeMenu(index)"
          v-for="(item,index) in menu" :key="index">
@@ -19,17 +19,23 @@
     methods: {
         changeMenu(index){
             this.currentIndex = index
+            if(index === 0){
+                // 回到首页
+                this.$store.dispatch('updateHomeList', null)
+            } else {
+                this.$store.dispatch('updateTopicsList',this.menu[index])
+            }
         }
     }
   }
 </script>
 <style lang="less">
-#navMenu {
+.navMenu {
     // margin: 10px 0 -1px;
     // padding: 0;
-    // position: absolute;
-    // right: 0;
-    // bottom: 0;
+    position: absolute;
+    right: 0;
+    bottom: 0;
     li {
         display: inline-block;
         cursor: pointer;

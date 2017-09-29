@@ -1,39 +1,29 @@
 # vue-ghpages-blog
-基于[vue-ghpages-blog](https://github.com/viko16/vue-ghpages-blog)进行一定的个性化改变
+基于[vue-ghpages-blog](https://github.com/viko16/vue-ghpages-blog)
+进行各种乱七八糟的修改
 
 [![GitHub release][github-release-image]][github-release-url]
 [![JavaScript Style Guide][standardjs-image]][standardjs-url]
 [![Travis][travis-image]][travis-url]
 [![Dependency Status][daviddm-image]][daviddm-url]
 
-✏️ A blog based on GitHub Pages built with Vue.js 2 + webpack 3.
+✏️ A blog based on GitHub Pages.
 
-一个依赖 GitHub Pages，无需本地生成的静态博客，使用了 Vue.js 2 组件开发，webpack 3 打包。
-
+一个依赖 GitHub Pages，无需本地生成的静态博客
 
 ## Features
 
-- Vue 2 / Vue-router / axios
+- Vue 2 / Vue-router / axios / vuex
 - webpack 3 / Babel 6 / Stylus
 - using [TravisCI](https://travis-ci.org)
 - Hosting on GitHub Pages
 - SessionStorage cache
 
+## todolist
 
-**Note:** `src/config.js` points the configurations of my personal blog. **If you fork this repository, modify it first.**  😳
-
-```bash
-# Install dependencies
-npm install
-# Develop with hot reload
-npm run dev
-# Lint and Test
-npm test
-```
-
-## About My Workflow
-- All the posts are stored in [viko16/writings](https://github.com/viko16/writings), while [`src/config.js`](src/config.js) points it.
-- When I push the code to `develop` branch, [TravisCI](.travis.yml) will deploy `gh-pages` automatically.
+- 主布局修改
+- 增加标签定义
+- 搜索
 
 ## License
 

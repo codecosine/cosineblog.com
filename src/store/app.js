@@ -17,10 +17,7 @@ const getters = {
 // actions
 const actions = {
   updateList ({ commit, state }, list) {
-    var timeFilters = list.sort((a, b) => {
-      return new Date(a.date).getTime() - new Date(b.date).getTime()
-    })
-    commit('updateViewList', timeFilters)
+    commit('updateViewList', list)
   },
   getTopicsList ({ commit, state }) {
     return api.getTopics().then(topics => {
@@ -58,8 +55,11 @@ const mutations = {
   updateTopics (state, topics) {
     state.topics = topics
   },
-  updateCacheList (state, list) {
-    state.cacheList = list
+  updateCacheList (state, data) {
+    data.forEach(element => {
+      element = element.sort((a, b) => new Date(b.date) - new Date(a.date))      
+    })
+    state.cacheList = data
   }
 }
 

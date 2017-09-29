@@ -1,4 +1,5 @@
 @import '~normalize.css';
+@import '~loaders.css';
 @import '~prismjs/themes/prism.css';
 
 @fontFamily : "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;
@@ -41,16 +42,12 @@ header {
         font-weight: 600;
         color:@textColor;
     }
-    .des{
-        margin-bottom: 10px;
+    .site-name {
+        margin-bottom: 40px;
     }
     .description {
         margin: .2em 0 0;
         color: #999;
-    }
-    .searchBar{
-        position: absolute;
-        right: 0;
     }
 }
 .footer {
@@ -63,42 +60,81 @@ header {
     }
 }
 
-// List view 
 
-.list-view {
-    margin:0 20px
-}
-ol,ul {
-    padding:0;
-    list-style:none;
-}
-.list-item {
-    position:relative;
-    margin-bottom:50px;
-}
-.item-title{
-    display:inline-block;
-    margin-bottom:10px;
-    font-size:@fontSize + 2;
-    color:@textColor;
-    &:hover{
-        color:@linkColor
+// List View
+
+
+  .layout{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .list-view {
+    width: 75%;
+    margin-top: 20px;
+    margin-right: 20px;
+    border-right: 1px solid rgb(225, 228, 232);
+    position: relative;
+    .loading{
+        position: absolute;
+        left:50%;
+        top:100px;
+        transform: translate(-50%,0);
+        .ball-grid-pulse > div {
+            background-color: rgb(153, 155, 158);
+          }
     }
-}
-.item-date{
-    display:inline-block;
-    font-size:@fontSize - 2;
-    color:@metaColor;
-    border-top: 1px solid #ddd;
-    padding-top: 12px;
     
-}
-
-
+  }
+  .list-tree {
+    width: 20%;
+  }
+  ol,ul {
+      padding:0;
+      list-style:none;
+  }
+  .list-item {
+      position:relative;
+      margin-bottom:50px;
+  }
+  .item-title{
+      display:inline-block;
+      margin-bottom: 10px;
+      font-weight: 600;      
+      font-size:16px;
+      color: @textColor;
+      &:hover{
+          color:@linkColor
+      }
+  }
+  .item-date{
+      display:inline-block;
+      font-size:12px;
+      color:@metaColor;
+      padding-top: 12px;
+  }
 //
 // Post View
 // -----------------------------------------
-
+article{
+    clear: left;
+    font-size: 15px;
+    line-height: 1.77;
+    color: #444;
+    padding-top: 15px;
+    text-align: justify;
+    text-justify: distribute;
+    word-break: break-all;
+    h1 h2 h3 h4 h5{
+        margin: 0;
+        color: #555;
+        text-align: left;
+        font: bold 25px/1.1 "ff-tisa-web-pro", Cambria, "Times New Roman", Georgia, Times, sans-serif;
+    }
+    p {
+        margin: 0 0 1.234em;
+    }
+}
 .post-view {
     margin:0 20px 50px;
     a:hover {
