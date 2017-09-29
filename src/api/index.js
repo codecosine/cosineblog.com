@@ -80,7 +80,6 @@ function getHomeList (data) {
   }, [])
   list.sort((a, b) => new Date(b.date) - new Date(a.date))
   var slice = list.slice(0, 7)
-  console.log(slice)
   Cache.set('homelist', slice)
   return Promise.resolve(slice)
 }
