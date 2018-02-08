@@ -1,25 +1,15 @@
 import Vue from 'vue'
-import VueRouter from 'vue-router'
+import Router from 'vue-router'
+import HelloWorld from '@/components/HelloWorld'
 
-import ListView from '../views/List.vue'
-import PostView from '../views/Post.vue'
+Vue.use(Router)
 
-Vue.use(VueRouter)
-
-const routes = [
-  {
-    path: '/',
-    name: 'list',
-    component: ListView
-  },
-  {
-    path: '/post/:hash',
-    name: 'post',
-    component: PostView
-  }
-]
-
-export default new VueRouter({
-  mode: 'history',
-  routes
+export default new Router({
+  routes: [
+    {
+      path: '/',
+      name: 'HelloWorld',
+      component: HelloWorld
+    }
+  ]
 })

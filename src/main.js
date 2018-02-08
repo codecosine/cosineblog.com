@@ -1,21 +1,10 @@
-import Vue from 'vue'
-import router from './router'
-import App from './App.vue'
-import filter from './utils/filter'
-import store from './store'
+import Vue from 'vue';
+import App from './App.vue';
+import router from './router';
 
-// setup Vue filter
-filter(Vue)
+Vue.config.productionTip = false;
 
-// whether to allow vue-devtools inspection
-// false in production builds
-Vue.config.devtools = process.env.NODE_ENV !== 'production'
-
-const app = new Vue({
-  el: '#app',
+new Vue({
   router,
-  store,
-  render: h => h(App)
-})
-
-export { app, router }
+  render: (h) => h(App),
+}).$mount('#app');

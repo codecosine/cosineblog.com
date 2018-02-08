@@ -1,60 +1,27 @@
 <template>
-  <div id='app'>
-    <header class="header">
-      <div class="site-name">
-          <router-link to="/">{{ headerTitle }}</router-link>
-          <p class="description">{{ description }}</p>
-      </div>
-      <navMenu :menu="menuConf" ></navMenu>
-    </header>
-    <router-view></router-view>
-    <footer-bar></footer-bar>
+  <div id="app">
+    <page-header></page-header>
+    <router-view/>
   </div>
 </template>
 
 <script>
-  import api from './api/index.js'
-  import './style/style.less'
-  import conf from './config'
-  import navMenu from './components/navMenu.vue'
-  import footerBar from './components/footerBar.vue'
-
-  export default {
-    name: 'app',
-
-    data () {
-      return {
-        headerTitle: conf.headerTitle,
-        description: conf.description,
-      }
-    },
-    components: {
-      navMenu,
-      footerBar,
-    },
-    computed: {
-      menuConf(){
-        var menu = this.$store.getters.topics.map(({name, sha}) => ({ 
-          label: conf.menu[name] || name,
-          name,
-          sha,
-        }))
-        menu.unshift({
-          label: '首页',
-          name: 'home',
-          sha: 'home'
-        })
-        return menu
-      }
-    },
-    mounted(){
-      // 显示加载动画
-      // 1.加载tags=>tagslist=>形成首页
-      this.$store.dispatch('getTopicsList').then(list => {
-        this.$store.dispatch('updateCacheList', list)
-        this.$store.dispatch('updateHomeList', list)
-        // 首页加载动画结束
-      })
-    }
-  }
+import PageHeader from './components/PageHeader'
+export default {
+  name: 'App',
+  components:{
+    PageHeader,
+  },
+}
 </script>
+
+<style>
+#app {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
+}
+</style>
