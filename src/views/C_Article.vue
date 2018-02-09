@@ -1,29 +1,39 @@
 <template>
   <section>
     <article class="article">
-      <h2>{{ title }}</h2>
-      <ArticleContentBox :content=content></ArticleContentBox>
+      <ArticleSideBar :articleTitle=title></ArticleSideBar>
+      <ArticleContentBox :articleContentText=content class="article_content"></ArticleContentBox>
     </article>
-
   </section>
 </template>
 <script>
-import { Component, Prop, Vue } from 'vue-property-decorator';
 import ArticleContentBox from '../components/ArticleContentBox.vue';
-@Component({
+import ArticleSideBar from '../components/ArticleSideBar.vue';
+/**test */
+import test from '../api/test'
+export default {
   components:{
     ArticleContentBox,
+    ArticleSideBar
+  },
+  data(){
+    return {
+      title : 'this is a title',
+      content : `i am a ~~test~~ **test**.`
+    }
+  },
+  mounted(){
+    test.getArticleTest().then(res=>{
+      console.log(res)
+      this.content = res.data;
+    })
   }
-})
-export default class ArticleView extends Vue {
-  title = 'this is a title'
-  content = `i am a ~~test~~ **test**.
-     ## this is a head title
-  `
 }
 </script>
 <style lang="less" scoped>
 .article{
+  display: flex;
+  flex-wrap: wrap;
   border:1px solid #666;
 }
 </style>

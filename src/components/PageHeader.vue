@@ -1,8 +1,9 @@
 <template>
   <header>
     <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/article">article</router-link>
+      <router-link to="/">Cosine'Home</router-link> |
+      <router-link to="/article">Article</router-link> |
+      <router-link to="/about">About</router-link>
     </div>
   </header>
 </template>

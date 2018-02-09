@@ -1,24 +1,37 @@
 <template>
-  <section>
-      <div>
-        <h2>this is a content text</h2>
-        <vue-markdown>{{ content }}</vue-markdown>
-      </div>
-  </section>
+    <main class="article-content">
+      <vue-markdown :source="articleContentText"></vue-markdown>
+    </main>
 </template>
 
 <script>
-import { Component,Prop, Vue } from 'vue-property-decorator';
 import VueMarkdown from 'vue-markdown';
-@Component({
+import Prism from 'prismjs'
+import 'prismjs/themes/prism.css';
+
+export default {
   components: {
     VueMarkdown,
   },
-})
-export default class ArticleContentBox extends Vue {
-    @Prop({default: 'this is a article content'})
-    content
+  props:{
+    articleContentText: String
+  },
+  updated() {
+			Prism.highlightAll();
+	},
+
 
 }
 
 </script>
+<style lang="less" scoped>
+
+.article-content {
+
+    @media (min-width: 768px){
+      flex: 0 0 75%;
+      max-width: 75%;
+      padding-left: 3rem!important;
+    }
+}
+</style>
