@@ -1,5 +1,5 @@
 <template>
-  <header>
+  <header class="main-header">
     <div id="nav">
       <router-link to="/">Cosine'Home</router-link> |
       <router-link to="/article">Article</router-link> |
@@ -8,6 +8,11 @@
   </header>
 </template>
 <style>
+.main-header{
+  position: fixed;
+  height: 4rem;
+  top:0;
+}
 #nav {
   padding: 30px;
 }

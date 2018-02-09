@@ -1,5 +1,5 @@
 <template>
-    <main class="article-content">
+    <main class="article-content box">
       <vue-markdown :source="articleContentText"></vue-markdown>
     </main>
 </template>
@@ -27,11 +27,10 @@ export default {
 <style lang="less" scoped>
 
 .article-content {
-
-    @media (min-width: 768px){
-      flex: 0 0 75%;
-      max-width: 75%;
-      padding-left: 3rem!important;
-    }
+  @media (min-width: 768px){
+    flex: 0 0 75%;
+    max-width: 75%;
+    padding-left: 3rem!important;
+  }
 }
 </style>

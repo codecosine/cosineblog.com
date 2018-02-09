@@ -1,8 +1,7 @@
 <template>
   <div id="app">
     <page-header></page-header>
-    <div id="page-content">
-
+    <div id="main">
       <router-view/>
     </div>
   </div>
@@ -26,11 +25,8 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
-
 }
-#page-content{
-  margin: 0 auto;
-  width: 100%;
-  /* padding: 0 15px; */
+#main{
+  margin-top: 4rem;
 }
 </style>

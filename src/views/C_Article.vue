@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section class="article-wrap">
     <article class="article">
       <ArticleSideBar :articleTitle=title></ArticleSideBar>
       <ArticleContentBox :articleContentText=content class="article_content"></ArticleContentBox>
@@ -31,6 +31,11 @@ export default {
 }
 </script>
 <style lang="less" scoped>
+.article-wrap{
+  box-sizing: border-box;
+  margin: 0 auto;
+  padding: 0 15px;
+}
 .article{
   display: flex;
   flex-wrap: wrap;
