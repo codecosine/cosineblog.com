@@ -1,6 +1,8 @@
 <template>
     <main class="article-content box">
-      <vue-markdown :source="articleContentText"></vue-markdown>
+      <vue-markdown class="markdown-body" :source="articleContentText" toc toc-id="articleToc">
+
+      </vue-markdown>
     </main>
 </template>
 
@@ -27,6 +29,8 @@ export default {
 <style lang="less" scoped>
 
 .article-content {
+  position: relative;
+  width: 100%;
   @media (min-width: 768px){
     flex: 0 0 75%;
     max-width: 75%;
