@@ -1,0 +1,33 @@
+.table-of-contents{
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 0;
+  // display: flex;
+  // flex-wrap: wrap;
+  & > li {
+    & > ul {
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
+      flex-wrap: wrap;
+      & > li > a {
+        display: block;
+        padding: .25rem 1.5rem;
+        font-size: 85%;
+        color: rgba(0,0,0,.65);
+        &:hover{
+          color: rgba(0,0,0,.85);
+          text-decoration: none;
+          background-color: transparent;
+        }
+      }
+    }
+    & > a{
+      display: block;
+      text-decoration: none;
+      padding: .25rem 1.5rem;
+      font-weight: 700;
+      color: rgba(0, 0, 0, 0.6);
+    }
+  }
+}

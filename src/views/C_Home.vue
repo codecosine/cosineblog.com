@@ -1,7 +1,3 @@
 <template>
-
+<div>home</div>
 </template>
-
-<script>
-export default class Home extends Vue {}
-</script>

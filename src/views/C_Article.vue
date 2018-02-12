@@ -14,11 +14,11 @@ import test from '../api/test'
 export default {
   components:{
     ArticleContentBox,
-    ArticleSideBar
+    ArticleSideBar,
   },
   data(){
     return {
-      title : 'this is a title',
+      title : '类型和值',
       content : `i am a ~~test~~ **test**.`
     }
   },
@@ -39,6 +39,5 @@ export default {
 .article{
   display: flex;
   flex-wrap: wrap;
-  border:1px solid #666;
 }
 </style>
