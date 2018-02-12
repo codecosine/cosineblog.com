@@ -1,9 +1,18 @@
 <template>
   <header class="main-header header-style">
     <div id="nav">
+      <div>
       <router-link to="/">Cosine'Home</router-link> |
-      <router-link to="/article">Article</router-link> |
-      <router-link to="/about">About</router-link>
+
+      </div>
+      <nav>
+        <ul>
+          <li>
+            <router-link to="/article">Article</router-link> |
+            <router-link to="/about">About</router-link>
+          </li>
+        </ul>
+      </nav>
     </div>
   </header>
 </template>
@@ -25,7 +34,7 @@
 }
 #nav a {
   font-weight: bold;
-  color: #2c3e50;
+  color: #258fb8;
 }
 
 #nav a.router-link-exact-active {
