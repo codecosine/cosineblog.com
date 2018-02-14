@@ -1,9 +1,10 @@
 <template>
 <main class="main-container">
     <div class="list-view">
-        <HomeListCard v-for="(item,index) in listData" :key="index"
-                    :title="item.title"
-                    :link="item.link"
+        <HomeListCard v-for="{ title, sha, date } in filteredList" :key="sha"
+                    :title="title"
+                    :link="'/post/'+sha"
+                    :date="date"
         ></HomeListCard>
     </div>
 </main>
@@ -14,34 +15,10 @@ export default {
   components:{
       HomeListCard,
   },
-  data(){
-      return {
-          listData:[{
-              title:'一次记住js的6个正则方法',
-              time: '2018-2-14',
-              link: 'https://juejin.im/entry/5a8121335188257a766328b9'
-           },{
-              title:'一次记住js的6个正则方法',
-              time: '2018-2-14',
-              link: 'https://juejin.im/entry/5a8121335188257a766328b9'
-           },{
-              title:'一次记住js的6个正则方法',
-              time: '2018-2-14',
-              link: 'https://juejin.im/entry/5a8121335188257a766328b9'
-           },{
-              title:'一次记住js的6个正则方法',
-              time: '2018-2-14',
-              link: 'https://juejin.im/entry/5a8121335188257a766328b9'
-           },{
-              title:'一次记住js的6个正则方法',
-              time: '2018-2-14',
-              link: 'https://juejin.im/entry/5a8121335188257a766328b9'
-           },{
-              title:'一次记住js的6个正则方法',
-              time: '2018-2-14',
-              link: 'https://juejin.im/entry/5a8121335188257a766328b9'
-           }]
-      }
+  computed:{
+    filteredList(){
+        return this.$store.getters.list
+    },
   }
 }
 </script>

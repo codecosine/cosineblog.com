@@ -8,8 +8,6 @@
         </div>
         <div class="clearfix">
           <ul class="nav-list nav-right">
-            <paper-icon-button id="icon" icon="cr:search" role="button" tabindex="-1" aria-disabled="false" title="在设置中搜索" aria-hidden="true">
-            </paper-icon-button>
             <div class="nav-list-item searchInputBox">
               <input id="searchInput"
               placeholder="Search..."

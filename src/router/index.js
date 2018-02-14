@@ -14,8 +14,8 @@ export default new Router({
       component: Home
     },
     {
-      path: '/article',
-      name: 'Article',
+      path: '/post/:hash',
+      name: 'post',
       component: Article
     }
   ]

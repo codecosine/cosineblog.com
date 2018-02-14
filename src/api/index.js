@@ -1,6 +1,4 @@
 import axios from 'axios'
-import 'es6-promise/auto'
-
 import conf from '../config'
 import { onlyTitle, onlyDate } from '../utils'
 

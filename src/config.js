@@ -1,5 +1,6 @@
 module.exports = {
     headerTitle: '余弦',
+    blogTitle: '余弦',
     description: '理能顿悟,事需渐修',
     favicon: './static/favicon.png',
     menu: {
