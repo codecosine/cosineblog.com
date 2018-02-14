@@ -16,9 +16,6 @@
                class="searchInput" type="search" />
             </div>
             <li class="nav-list-item">
-              <router-link to="/article">Article</router-link>
-            </li>
-            <li class="nav-list-item">
               <router-link to="/about">About</router-link>
             </li>
           </ul>
@@ -80,7 +77,6 @@
     background: transparent;
     border: none;
     color: white;
-    font: inherit;
     outline: none;
     padding: 0;
     position: relative;
