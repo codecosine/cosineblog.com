@@ -30,6 +30,7 @@ export default {
 
 .article-content {
   position: relative;
+  margin-top: 30px;
   width: 100%;
   @media (min-width: 768px){
     flex: 0 0 75%;

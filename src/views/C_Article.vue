@@ -18,8 +18,8 @@ export default {
   },
   data(){
     return {
-      title : '类型和值',
-      content : `i am a ~~test~~ **test**.`
+      title : '',
+      content : ``
     }
   },
   mounted(){
