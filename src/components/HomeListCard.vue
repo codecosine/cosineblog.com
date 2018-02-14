@@ -8,8 +8,9 @@
             <div class="content-title">
                 <a :href=link>{{title}}</a>
             </div>
-            <div class="publish-time">
-                <time pubdate="pubdate" datetime="2018/12/12" title="2018/12/12" class="item-date">9月后</time>            </div>
+            <div class="content-time">
+                <time pubdate="pubdate" :datetime="date | formatDate" :title="date | formatDate" class="item-date">{{ date | timeago }}</time>
+            </div>
             <div class="content-img">
                 <img src="" alt="">
             </div>
@@ -22,6 +23,11 @@ export default {
   props:{
       link:String,
       title:String,
+  },
+  data(){
+      return {
+        date:'2018-02-15',
+      }
   }
 }
 </script>
@@ -54,12 +60,23 @@ export default {
 .content-img{
     position: absolute;
 }
+.content-time{
+    .item-date {
+        display: inline-block;
+        font-size: 12px;
+        color: #888;
+        padding-top: 12px;
+    }
+}
 .content-info{
     list-style: none;
     margin: 0;
-
+    padding: 0;
+    font-size: 0.9rem;
+    
     li{
         float: left;
+        padding: 0px 3px;
         a{
             text-decoration: none;
             cursor: pointer;
