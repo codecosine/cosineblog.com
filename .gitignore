@@ -1,0 +1,11 @@
+.git
+dist
+node_modules/
+dist/
+.git/
+.DS_Store
+Thumbs.db
+db.json
+*.log
+public/
+.deploy*/
