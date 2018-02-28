@@ -1,0 +1,662 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    
+
+    <title>深入JavaScript-类型和值-类型和值基础 | Cosine 的博客</title>
+    <meta name="author" content="ycosine">
+    
+    <meta name="description" content="余贤俊 | cosine 的博客">
+    
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <meta property="og:title" content="深入JavaScript-类型和值-类型和值基础"/>
+    <meta property="og:site_name" content="Cosine&#39;s Blog"/>
+
+    
+    <meta property="og:image" content=""/>
+    
+
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="alternate" href="/atom.xml" title="Cosine&#39;s Blog" type="application/atom+xml">
+    <link rel="stylesheet" href="/css/lib/materialize.min.css">
+    <link rel="stylesheet" href="/css/lib/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+
+    
+        <link rel="stylesheet" href="/css/lib/prettify-tomorrow-night-eighties.css" type="text/css">
+    
+    <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+</head>
+
+
+<body>
+    <img src="/weixin_favicon.png" style="position: absolute; left: -9999px; opacity: 0; filter: alpha(opacity=0);">
+
+    <nav class="indigo">
+    <div class="nav-wrapper">
+        <a href="#" data-activates="main-menu" class="button-collapse">
+            <i class="fa fa-navicon"></i>
+        </a>
+        <div class="">
+            <a href="/" class="brand-logo hide-on-med-and-down">Cosine&#39;s Blog</a>
+            <ul class="right hide-on-med-and-down">
+                
+                    <li>
+                        <a class="menu-home " href="/" >
+                            <i class="fa fa-home "></i>
+                            
+                            首页
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-archive " href="/archives" >
+                            <i class="fa fa-archive "></i>
+                            
+                            归档
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-category category-menu" href="javascript:;" data-activates="category-menu" >
+                            <i class="fa fa-bookmark "></i>
+                            
+                            分类
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-reading " href="/reading" >
+                            <i class="fa fa-book "></i>
+                            
+                            读书
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-about " href="/about" >
+                            <i class="fa fa-user "></i>
+                            
+                            关于
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-search modal-trigger " href="#search" >
+                            <i class="fa fa-search "></i>
+                            
+                            搜索
+                        </a>
+                    </li>
+                
+            </ul>
+            <div>
+    <ul class="side-nav indigo darken-1" id="main-menu">
+        
+        <li class="side-user">
+            <div class="row">
+                <div class="col s4 no-padding">
+                    <img class="avatar-image circle responsive-img" src="http://ww2.sinaimg.cn/small/74990035jw1f1rjkd681bj20rs0rsdhg.jpg" alt="User Avatar">
+                </div>
+                <div class="info col s8 valign-wrapper no-padding">
+                    <div class="valign">
+                        <p class="name">你的大名</p>
+                        <p class="desc">Web前端/iOS/技术宅</p>
+                    </div>
+                </div>
+            </div>
+        </li>
+        
+
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-home " href="/" >
+                    <i class="fa fa-home "></i>
+                    
+                    首页
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-archive " href="/archives" >
+                    <i class="fa fa-archive "></i>
+                    
+                    归档
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-category category-menu" href="javascript:;" data-activates="category-menu" >
+                    <i class="fa fa-bookmark "></i>
+                    
+                    分类
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-reading " href="/reading" >
+                    <i class="fa fa-book "></i>
+                    
+                    读书
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-about " href="/about" >
+                    <i class="fa fa-user "></i>
+                    
+                    关于
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-search modal-trigger " href="#search" >
+                    <i class="fa fa-search "></i>
+                    
+                    搜索
+                </a>
+            </li>
+        
+    </ul>
+
+    <ul class="side-nav indigo darken-1" id="category-menu">
+    
+
+            
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/Vue/">
+                    Vue <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/JavaScript/">
+                    JavaScript <span class="right">4 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/页面重构/">
+                    页面重构 <span class="right">2 篇</span></a>
+                </a>
+            </li>
+
+        
+
+    </ul>
+</div>
+
+        </div>
+    </div>
+</nav>
+
+<div id="search" class="modal search-modal">
+    <div class="row">
+        <div class="input-field col s12">
+              <input id="search-input" type="text">
+              <label for="search-input">搜索</label>
+        </div>
+
+    </div>
+    <div id="search-result" class="search-result col s12">
+
+    </div>
+</div>
+
+
+    <main>
+        <div class="container main-container">
+    <nav class="page-nav hide-on-small-only">
+    <div class="nav-wrapper indigo">
+        <span class="breadcrumb">当前位置（分类目录）</span>
+        
+            
+    
+    
+    <a class="breadcrumb" href="/categories/JavaScript/">JavaScript</a>
+
+
+        
+
+        
+    </div>
+</nav>
+
+<article>
+    <div class="card">
+        <div class="card-content">
+            
+
+            <div class="article-title">
+                
+    
+        <h1>深入JavaScript-类型和值-类型和值基础</h1>
+    
+
+
+            </div>
+            <time class="pink-link-context" datetime="2016-12-31T16:00:00.000Z"><a href="/2017/01/01/2017-01-01-深入-类型和值-基础/">2017-01-01</a></time>
+
+            <span id="busuanzi_container_page_pv" class="read-times-container">
+    <i class="fa fa-eye"></i>
+    <span id="busuanzi_value_page_pv"></span>
+</span>
+
+            
+    <div class="tags-row">
+        
+            <a href="/tags/深入系列/" class="chip pink lighten-1">深入系列</a>
+        
+            <a href="/tags/JavaScript/" class="chip pink lighten-1">JavaScript</a>
+        
+    </div>
+
+
+            <div class="toc pink-link-context hide-on-med-and-down">
+    <ol class="section table-of-contents"><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#深入JavaScript-类型和值-第一部分"><span class="section table-of-contents-text">深入JavaScript-类型和值-第一部分</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#前言"><span class="section table-of-contents-text">前言</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#JavaScript中7种内置类型"><span class="section table-of-contents-text">JavaScript中7种内置类型</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#7种类型对应着7种typeof的返回方式"><span class="section table-of-contents-text">7种类型对应着7种typeof的返回方式</span></a></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#弱类型是什么？"><span class="section table-of-contents-text">弱类型是什么？</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#对一个变量使用typeof，并不是在问这个变量是什么类型，而是在问这个变量中储存的值是什么类型。"><span class="section table-of-contents-text">对一个变量使用typeof，并不是在问这个变量是什么类型，而是在问这个变量中储存的值是什么类型。</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#不谈转换，类型基础理解"><span class="section table-of-contents-text">不谈转换，类型基础理解</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#undefined-和-null"><span class="section table-of-contents-text">undefined 和 null</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#String"><span class="section table-of-contents-text">String</span></a></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#Number"><span class="section table-of-contents-text">Number</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#浮点精度"><span class="section table-of-contents-text">浮点精度</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#浮点数字语法的细节"><span class="section table-of-contents-text">浮点数字语法的细节</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#关于位运算符"><span class="section table-of-contents-text">关于位运算符</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#关于NAN"><span class="section table-of-contents-text">关于NAN</span></a></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#Boolean"><span class="section table-of-contents-text">Boolean</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#Array"><span class="section table-of-contents-text">Array</span></a></li></ol></li></ol>
+</div>
+
+
+            <div class="entry pink-link-context">
+                <h1 id="深入JavaScript-类型和值-第一部分"><a href="#深入JavaScript-类型和值-第一部分" class="headerlink" title="深入JavaScript-类型和值-第一部分"></a>深入JavaScript-类型和值-第一部分</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><blockquote>
+<p>只要是程序员都会的语言，JavaScript却总是惹人生厌，弱类型语言，天生长着一副满图坑的脸，他就像是恶魔，你越是逃避，越是侵蚀，只有真正了解他的特性才能很好的驯服。<br><strong> 2018 复习归档修正 </strong><br><strong>类型在于明确每个值的立场,让程序员清楚认识事物之间的区别</strong><br><strong>开发者对待类型不同，自然让引擎也应对待的不同</strong><br><a id="more"></a></p>
+</blockquote>
+<blockquote>
+<p>程序引擎和开发者在对待42（数字）不同于他们对待“42”（字符串）时，会采用不同的方式，那么这两个值的类型就应当不同。<br>为什么课程设计程序中的学号id字段的类型是String而不是Int这样的数字类型？<br>学号的“数字感”，总让人第一时间就想到数字类型。后来我是这样解释的，学号不像是“数值”而更多的是一种“唯一标识”,犹如车牌号，各种楼层号。数值的主要作用是用来计算，即加减乘除。而学号顶多涉及到一个排序。（这只是一种理解方式）</p>
+</blockquote>
+<h2 id="JavaScript中7种内置类型"><a href="#JavaScript中7种内置类型" class="headerlink" title="JavaScript中7种内置类型"></a>JavaScript中7种内置类型</h2><ul>
+<li>null</li>
+<li>undefined</li>
+<li>boolean</li>
+<li>number</li>
+<li>string</li>
+<li>object</li>
+<li>symbol</li>
+</ul>
+<h3 id="7种类型对应着7种typeof的返回方式"><a href="#7种类型对应着7种typeof的返回方式" class="headerlink" title="7种类型对应着7种typeof的返回方式"></a>7种类型对应着7种typeof的返回方式</h3><p><strong>注意并不是值和typeof运算值并不是完全相对应的</strong></p>
+<ul>
+<li>typeof null 属于历史遗留BUG，永远也不会修复。</li>
+<li>function虽然不是类型，但是也能被typeof识别。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typeof</span> <span class="literal">undefined</span>     === <span class="string">"undefined"</span>; <span class="comment">// true</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="literal">true</span>          === <span class="string">"boolean"</span>;   <span class="comment">// true</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="number">42</span>            === <span class="string">"number"</span>;    <span class="comment">// true</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="string">"42"</span>          === <span class="string">"string"</span>;    <span class="comment">// true</span></span><br><span class="line"><span class="keyword">typeof</span> &#123; <span class="attr">life</span>: <span class="number">42</span> &#125;  === <span class="string">"object"</span>;    <span class="comment">// true</span></span><br><span class="line"><span class="comment">// added in ES6!</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="built_in">Symbol</span>()      === <span class="string">"symbol"</span>;    <span class="comment">// true</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="literal">null</span> === <span class="string">"object"</span>; <span class="comment">// true </span></span><br><span class="line"><span class="comment">// typeof返回的第七个字符串</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>)</span>&#123; <span class="comment">/* .. */</span> &#125; === <span class="string">"function"</span>; <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<h2 id="弱类型是什么？"><a href="#弱类型是什么？" class="headerlink" title="弱类型是什么？"></a>弱类型是什么？</h2><p>在JavaScript中，变量没有类型，值才有类型。<br><strong>重复一次，变量没有类型，值才有类型。</strong><br>　　可以从某个很奇怪的角度说,这是弱变量,强类型。变量可以在任何时间保存任何类型的值，这似乎很好理解，但是这到底和其他强类型语言的区别在哪里？</p>
+<blockquote>
+<p>“类型强制访问控制（type enforcement），表现在引擎并不要求一个变量始终保持它的初始化值的类型。变量可以在一个赋值语句中保持string类型的值，在下一个赋值语句中又保持number的值。值42的类型时number，它的类型不能改变。另外一个值，“42”是string 类型。</p>
+</blockquote>
+<h2 id="对一个变量使用typeof，并不是在问这个变量是什么类型，而是在问这个变量中储存的值是什么类型。"><a href="#对一个变量使用typeof，并不是在问这个变量是什么类型，而是在问这个变量中储存的值是什么类型。" class="headerlink" title="对一个变量使用typeof，并不是在问这个变量是什么类型，而是在问这个变量中储存的值是什么类型。"></a>对一个变量使用typeof，并不是在问这个变量是什么类型，而是在问这个变量中储存的值是什么类型。</h2><p>后补充：这里在我后面文章值和引用中，提出了《你不知道的JavaScript》的的概念：<br>使用变量的时候本身是属于RHS 右值查询<br>而变量本身的声明和存在，则是 LHS 左变量搜索</p>
+<h2 id="不谈转换，类型基础理解"><a href="#不谈转换，类型基础理解" class="headerlink" title="不谈转换，类型基础理解"></a>不谈转换，类型基础理解</h2><h3 id="undefined-和-null"><a href="#undefined-和-null" class="headerlink" title="undefined 和 null"></a>undefined 和 null</h3><p>首先要明白undefined是一个基本内置类型，明白这一点后，就可以更好的去明白和undeclared的区别</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a;</span><br><span class="line">a; <span class="comment">// undefined</span></span><br><span class="line">b; <span class="comment">// ReferenceError: b is not defined</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>null 指空值(empty vlaue)</li>
+<li>undefined 指没有值或者从未赋值(missing value)</li>
+</ul>
+<h3 id="String"><a href="#String" class="headerlink" title="String"></a>String</h3><p><strong>字符串这边没有太多可以说的，下面说的不可变，也只是值传递的表现现象而已</strong></p>
+<p>字符串不可变。(事实上在JavaScript中所有标量基本类型值都是不可更改的,Number,Boolean,String)<br>指的是字符串的成员函数操作不会改变其原始值，而是创建并返回一个新的字符串。<br>在JavaScript中，字符串的操作总是和数组贴合的很接近，字符串的操作，往往是拆分成“字符数组”的操作。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 字符串颠倒</span></span><br><span class="line"><span class="keyword">var</span> a = <span class="string">'cosine'</span></span><br><span class="line"><span class="keyword">var</span> b = a.split(<span class="string">''</span>).reverse().join(<span class="string">''</span>) <span class="comment">//字符串反转</span></span><br><span class="line"><span class="comment">// 创建副本,借用数组的成员函数来进行join的操作</span></span><br><span class="line"><span class="keyword">var</span> c = <span class="built_in">Array</span>.prototype.join.call(a,<span class="string">"-"</span>)</span><br><span class="line"><span class="comment">// 为什么我们不试试借用reverse呢</span></span><br><span class="line"><span class="keyword">var</span> d = <span class="built_in">Array</span>.prototype.reverse.call(a);<span class="comment">//TypeError: Cannot assign to read only property '0' of object '[object String]' at String.reverse (native)</span></span><br></pre></td></tr></table></figure>
+<p>想一下,join 和 reverse 有什么本质上的区别。<br>数组方法中，有很多不一样的方法，一些方法会操作修改到原有数组，一些则是作为拷贝返回新的数组。<br>刚才提到的字符串不变性的问题,这里显然报出read only的错误了。</p>
+<p>关于内置对象中的一些其他方法，我就不在说了，可以分出专题写常用的一些操作方法</p>
+<h2 id="Number"><a href="#Number" class="headerlink" title="Number"></a>Number</h2><p>这一直是JavaScript令人诟病的类型，因为只有一种数值类型，而且是常常惹事的双精度浮点数<br>二进制浮点数最大的问题</p>
+<h3 id="浮点精度"><a href="#浮点精度" class="headerlink" title="浮点精度"></a>浮点精度</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">0.1</span> + <span class="number">0.2</span> === <span class="number">0.3</span>; <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+<p><strong>Number最大的坑就是安全范围2E53-1，只有53位，精度问题都有</strong><br>处理上面这个精度问题，简单的话可以使用 Number.EPSILON 这个机器精度常量值来解决。</p>
+<h3 id="浮点数字语法的细节"><a href="#浮点数字语法的细节" class="headerlink" title="浮点数字语法的细节"></a>浮点数字语法的细节</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">42.</span>toFixed(<span class="number">3</span>) <span class="comment">// 语法错误</span></span><br><span class="line">(<span class="number">42</span>).toFixed(<span class="number">3</span>)</span><br><span class="line"><span class="number">42.</span>.toFixed(<span class="number">3</span>)</span><br></pre></td></tr></table></figure>
+<p>当然不推荐上面这种使用原生函数的方式，但是要注意一个坑<br>“42.”会被编译器认为是“42.0”省略0的写法。</p>
+<h3 id="关于位运算符"><a href="#关于位运算符" class="headerlink" title="关于位运算符"></a>关于位运算符</h3><p><a href="http://jerryzou.com/posts/do-you-really-want-use-bit-operators-in-JavaScript/" target="_blank" rel="noopener">为什么不要在JavaScript中使用位操作符</a></p>
+<blockquote>
+<p>虽然说整数最大能到达到53位，但是有些数字操作(如数位操作)值适用于32位数字，所以这些操作中数字的安全范围就要小很多。a|0 可以将变量a中的数值转换位32位有符号整数，因为数位运算符 | 只适用于32位有符号整数</p>
+</blockquote>
+<h3 id="关于NAN"><a href="#关于NAN" class="headerlink" title="关于NAN"></a>关于NAN</h3><ul>
+<li>请使用Number.isNaN 函数来判断</li>
+<li>NaN是JavaScript中唯一一个不等于自身的值<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(!<span class="built_in">Number</span>.isNaN)&#123;</span><br><span class="line">  <span class="built_in">Number</span>.isNaN = <span class="function"><span class="keyword">function</span>(<span class="params">n</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> n !== n;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="Boolean"><a href="#Boolean" class="headerlink" title="Boolean"></a>Boolean</h2><p>布尔类型除了开关的Flag的天性设计，最大的感受是为了判断符而生的。</p>
+<p>注意不要使用 new Boolean这个原生函数，这其实也违背了我上一句说的话。<br>这根本一点 也不判断。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> bool = <span class="keyword">new</span> <span class="built_in">Boolean</span>(<span class="literal">false</span>);</span><br><span class="line"><span class="keyword">if</span> (bool) &#123;</span><br><span class="line">	alert(<span class="string">'true'</span>);</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">	alert(<span class="string">'false'</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// true</span></span><br></pre></td></tr></table></figure></p>
+<p>这个没什么意义的面试题和类型转换有关。</p>
+<h2 id="Array"><a href="#Array" class="headerlink" title="Array"></a>Array</h2><p>严格来说数组不属于类型，这里更关注值的类型特性。<br>数组更多关注一些内置的方法操作和类对象特性显露。<br>后面有文章会说~</p>
+
+                
+<p class="pink-link-context">
+    <a href="/2017/10/16/2017-10-16-vue探究/" rel="next" title="vue 源码 阅读1">
+    上一篇：vue 源码 阅读1
+  </a>
+</p>
+
+
+
+<p class="pink-link-context">
+    <a href="/2017/01/01/2017-01-01-面试问答Q&amp;A/" rel="next" title="面试问答Q&amp;A">
+    下一篇：面试问答Q&amp;A
+  </a>
+</p>
+
+
+            </div>
+			
+        </div>
+    </div>
+</article>
+
+
+
+
+
+
+</div>
+
+        <div class="fixed-action-btn float-sitemap">
+    <a class="btn-floating btn-large pink">
+      <i class="fa fa-caret-square-o-up"></i>
+    </a>
+    <ul>
+      <li><a class="btn-return-top btn-floating waves-effect green" title="回到顶部"><i class="fa fa-arrow-circle-o-up"></i></a></li>
+      <li><a class="btn-floating waves-effect button-collapse yellow darken-1"  data-activates="main-menu" title="菜单"><i class="fa fa-navicon"></i></a></li>
+    </ul>
+  </div>
+
+    </main>
+    <footer class="page-footer indigo darken-1">
+    
+    <div class="footer-container container">
+        <div class="row">
+            
+            <div class="social-group col m4 s12">
+                <h5 class="white-text">社交</h5>
+                
+                    <a class="social-link" href="http://weibo.com/1956184117" target="_blank">
+                        <i class="fa fa-2x fa-weibo"></i>
+                    </a>
+                
+                    <a class="social-link" href="https://github.com/raytaylorlin" target="_blank">
+                        <i class="fa fa-2x fa-github"></i>
+                    </a>
+                
+                    <a class="social-link" href="/atom.xml" target="_blank">
+                        <i class="fa fa-2x fa-rss"></i>
+                    </a>
+                
+                
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+    </script>
+    <div class="site-visitors-container white-text">
+        <span>
+            <i class="fa fa-user"></i>
+            <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+        </span>
+        <span>&nbsp;|&nbsp;</span>
+        <span>
+            <i class="fa fa-eye"></i>
+            <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+        </span>
+    </div>
+
+
+            </div>
+            
+
+            
+            <div class="col m8 s12">
+                <h5 class="white-text">友情链接</h5>
+                
+                    <a class="social-link" href="http://raytaylorlin.com/" target="_blank">raytaylorism主题作者的技术博客</a>
+                
+                    <a class="social-link" href="https://github.com/raytaylorlin" target="_blank">Github地址（测试友情链接）</a>
+                
+            </div>
+            
+        </div>
+    </div>
+    
+
+    <div class="footer-copyright pink-link-context">
+        <div class="container">
+            © 2016 example.com, All rights reserved.
+            <p class="right" style="margin-top: 0;">本博客由 <a href="https://hexo.io">Hexo</a> 强力驱动 | 主题 <a href="https://github.com/raytaylorlin/hexo-theme-raytaylorism">raytaylorism</a></p>
+        </div>
+    </div>
+</footer>
+
+
+    <noscript>
+    <div class="noscript">
+        <p class="center-align">当前网速较慢或者你使用的浏览器不支持博客特定功能，请尝试刷新或换用Chrome、Firefox等现代浏览器</p>
+    </div>
+</noscript>
+<div class="noscript">
+    <p class="center-align">当前网速较慢或者你使用的浏览器不支持博客特定功能，请尝试刷新或换用Chrome、Firefox等现代浏览器</p>
+</div>
+
+
+<script src="/js/jquery.min.js"></script>
+<script src="/js/materialize.min.js"></script>
+
+<script>
+    (function($) {
+        $(document).ready(function() {
+            // 隐藏禁用javascript（针对微信内置浏览器）的提示
+            $('.noscript').hide();
+
+            // 图片缩放效果
+            var $imgs = $('img').not('.slider-image').not('.avatar-image').not('.carousel-image').not('.card-cover-image').not('.qrcode');
+
+            // 给图片加上点击放大效果（materialbox插件）
+            $imgs.addClass('materialboxed').each(function(i, el) {
+                $(this).attr('data-caption', $(this).attr('alt') || ' ');
+            }).materialbox();
+
+            // 优化表格的显示
+            $('table').each(function() {
+                var $table = $(this);
+                // 除去多行代码的情况
+                if ($table.find('pre').length == 0) {
+                    $table.addClass('responsive-table striped bordered');
+                }
+            });
+
+            // 首页幻灯片
+            $('.slider').slider({indicators: true, full_width: true, interval: 8000});
+
+            $(".button-collapse").sideNav();
+            $(".category-menu").sideNav();
+
+            // 针对gallery post
+            $('.carousel').carousel({full_width: true});
+            $('.carousel-control.prev').click(function() {
+                $('.carousel').carousel('prev');
+            });
+            $('.carousel-control.next').click(function() {
+                $('.carousel').carousel('next');
+            });
+
+            // 文章目录
+            $('article').not('.simple-article').find('h1').add('h2').add('h3').add('h4').add('h5').add('h6').scrollSpy();
+
+            // 目录随屏幕滚动（防止目录过长越过footer）
+            var $toc = $('.toc');
+            var scrollTargetTop = 0;
+            $(window).scroll(function() {
+                var $activeLink = $toc.find('a.active.section');
+                if ($(window).scrollTop() < 100) {
+                    scrollTargetTop = 0;
+                } else {
+                    if ($activeLink[0]) {
+                        scrollTargetTop = $activeLink.offset().top - $toc.offset().top;
+                    }
+                }
+                $toc.css('top', '-' + scrollTargetTop + 'px');
+            });
+
+            // 修正文章目录的left-border颜色
+            var color = $('.table-of-contents-text').css('color');
+            $('.table-of-contents-link').css('border-left-color', color);
+
+            // 针对移动端做的优化：FAB按钮点击一下收回
+            if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+                $('.fixed-action-btn').addClass('click-to-toggle');
+            }
+            // 回到顶部
+            $('.btn-return-top').click(function() {
+                $('body, html').animate({
+                    scrollTop: 0
+                }, 500);
+            });
+
+            // 重置读书页面的Tab标签页的颜色
+            $('li.tab a').hover(function() {
+                $(this).toggleClass('text-lighten-4');
+            });
+            $('.indicator').addClass('pink lighten-2');
+
+            
+            // 添加new标签
+            $('').append('<span class="new badge pink"></span>');
+            
+
+            // 搜索功能
+            $('.modal-trigger').leanModal({
+                // 打开搜索框时自动聚焦
+                ready: function() {
+                    if ($('#search').is(":visible")) {
+                        $('#search-input').focus();
+                    }
+                }
+            });
+            var searchXml = "search.xml";
+            if (searchXml.length == 0) {
+             	searchXml = "search.xml";
+            }
+            var searchPath = "/" + searchXml;
+            initSearch(searchPath, 'search-input', 'search-result');
+        });
+
+        // 初始化搜索与匹配函数
+        var initSearch = function(path, search_id, content_id) {
+            'use strict';
+            $.ajax({
+                url: path,
+                dataType: "xml",
+                success: function(xmlResponse) {
+                    // get the contents from search data
+                    var datas = $("entry", xmlResponse).map(function() {
+                        return {
+                            title: $("title", this).text(),
+                            content: $("content", this).text(),
+                            url: $("url", this).text()
+                        };
+                    }).get();
+                    var $input = document.getElementById(search_id);
+                    var $resultContent = document.getElementById(content_id);
+                    $input.addEventListener('input', function() {
+                        var str = '<ul class=\"search-result-list\">';
+                        var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                        $resultContent.innerHTML = "";
+                        if (this.value.trim().length <= 0) {
+                            return;
+                        }
+                        // perform local searching
+                        datas.forEach(function(data) {
+                            var isMatch = true;
+                            var content_index = [];
+                            var data_title = data.title.trim().toLowerCase();
+                            var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                            var data_url = data.url;
+                            var index_title = -1;
+                            var index_content = -1;
+                            var first_occur = -1;
+                            // only match artiles with not empty titles and contents
+                            if (data_title != '' && data_content != '') {
+                                keywords.forEach(function(keyword, i) {
+                                    index_title = data_title.indexOf(keyword);
+                                    index_content = data_content.indexOf(keyword);
+                                    if (index_title < 0 && index_content < 0) {
+                                        isMatch = false;
+                                    } else {
+                                        if (index_content < 0) {
+                                            index_content = 0;
+                                        }
+                                        if (i == 0) {
+                                            first_occur = index_content;
+                                        }
+                                    }
+                                });
+                            }
+                            // show search results
+                            if (isMatch) {
+                                keywords.forEach(function(keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    data_title = data_title.replace(regS, "<span class=\"search-keyword pink lighten-2\">" + keyword + "</span>");
+                                });
+
+                                str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                                var content = data.content.trim().replace(/<[^>]+>/g, "");
+                                if (first_occur >= 0) {
+                                    // cut out 100 characters
+                                    var start = first_occur - 20;
+                                    var end = first_occur + 80;
+                                    if (start < 0) {
+                                        start = 0;
+                                    }
+                                    if (start == 0) {
+                                        end = 100;
+                                    }
+                                    if (end > content.length) {
+                                        end = content.length;
+                                    }
+                                    var match_content = content.substring(start, end);
+                                    // highlight all keywords
+                                    keywords.forEach(function(keyword) {
+                                        var regS = new RegExp(keyword, "gi");
+                                        match_content = match_content.replace(regS, "<span class=\"search-keyword pink lighten-2\">" + keyword + "</span>");
+                                    });
+
+                                    str += "<p class=\"search-result\">..." + match_content + "...</p>"
+                                }
+                                str += "</li>";
+                            }
+                        });
+                        str += "</ul>";
+                        $resultContent.innerHTML = str;
+                    });
+                }
+            });
+        }
+    })(jQuery);
+</script>
+
+
+<script src="/js/prettify.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("pre").addClass("prettyprint");
+        prettyPrint();
+    });
+</script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+});
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+
+</body>
+</html>
