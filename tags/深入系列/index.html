@@ -64,6 +64,22 @@
                     </li>
                 
                     <li>
+                        <a class="menu-category category-menu" href="javascript:;" data-activates="category-menu" >
+                            <i class="fa fa-bookmark "></i>
+                            
+                            分类
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-reading " href="/reading" >
+                            <i class="fa fa-book "></i>
+                            
+                            读书
+                        </a>
+                    </li>
+                
+                    <li>
                         <a class="menu-about " href="/about" >
                             <i class="fa fa-user "></i>
                             
@@ -116,6 +132,22 @@
             </li>
         
             <li class="no-padding">
+                <a class="waves-effect menu-category category-menu" href="javascript:;" data-activates="category-menu" >
+                    <i class="fa fa-bookmark "></i>
+                    
+                    分类
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-reading " href="/reading" >
+                    <i class="fa fa-book "></i>
+                    
+                    读书
+                </a>
+            </li>
+        
+            <li class="no-padding">
                 <a class="waves-effect menu-about " href="/about" >
                     <i class="fa fa-user "></i>
                     
@@ -148,7 +180,15 @@
 
             <li class="collapse-level-0" collapse-level="0">
                 <a class="no-padding" href="/categories/JavaScript/">
-                    JavaScript <span class="right">2 篇</span></a>
+                    JavaScript <span class="right">4 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/页面重构/">
+                    页面重构 <span class="right">2 篇</span></a>
                 </a>
             </li>
 
@@ -194,12 +234,6 @@
 
     <div class="collection mt-0">
         
-            <a href="/2018/02/25/2018-02-25-JavaScript中变量、值、引用（2）/" class="collection-item grey-text text-darken-1">
-                <time datetime="2018-02-24T16:00:00.000Z">2018-02-25</time>
-                <span>&nbsp;&nbsp;&nbsp;</span>
-                事件循环EventLoop
-            </a>
-        
             <a href="/2018/02/25/2018-02-25-事件循环EventLoop/" class="collection-item grey-text text-darken-1">
                 <time datetime="2018-02-24T16:00:00.000Z">2018-02-25</time>
                 <span>&nbsp;&nbsp;&nbsp;</span>
@@ -210,6 +244,24 @@
                 <time datetime="2017-10-15T16:00:00.000Z">2017-10-16</time>
                 <span>&nbsp;&nbsp;&nbsp;</span>
                 vue 源码 阅读1
+            </a>
+        
+            <a href="/2017/01/01/2017-01-01-深入-类型和值-类型转换/" class="collection-item grey-text text-darken-1">
+                <time datetime="2016-12-31T16:00:00.000Z">2017-01-01</time>
+                <span>&nbsp;&nbsp;&nbsp;</span>
+                深入JavaScript-类型和值-类型转换
+            </a>
+        
+            <a href="/2017/01/01/2017-01-01-深入-类型和值-基础/" class="collection-item grey-text text-darken-1">
+                <time datetime="2016-12-31T16:00:00.000Z">2017-01-01</time>
+                <span>&nbsp;&nbsp;&nbsp;</span>
+                深入JavaScript-类型和值-类型和值基础
+            </a>
+        
+            <a href="/2017/01/01/2017-01-01-深入系列-类型和值(3)/" class="collection-item grey-text text-darken-1">
+                <time datetime="2016-12-31T16:00:00.000Z">2017-01-01</time>
+                <span>&nbsp;&nbsp;&nbsp;</span>
+                深入JavaScript-类型和值-第三部分
             </a>
         
     </div>
@@ -382,7 +434,7 @@
 
             
             // 添加new标签
-            $('.menu-reading, .menu-about').append('<span class="new badge pink"></span>');
+            $('').append('<span class="new badge pink"></span>');
             
 
             // 搜索功能
@@ -509,6 +561,15 @@
 
 
 
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+});
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
 
 
 
