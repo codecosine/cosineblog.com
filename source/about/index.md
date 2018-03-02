@@ -1,6 +1,12 @@
-title: 关于
-layout: about
 ---
-大家好，我是XXX。欢迎来到我的个人技术博客。
+layout: "about"
+title: "关于"
+date: 2016-04-21 04:48:33
+description: "Hi，我是贤俊"
+header-img: "img/bg.jpg"
+---
 
-这里用markdown写下你的简介，就跟平时写md一样就可以了。
+前端工程师
+
+
+
