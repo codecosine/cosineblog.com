@@ -1,7 +1,3 @@
----
-layout: layout
----
-
 <!-- Image to hack wechat -->
 <!-- <img src="<%= config['url'] %><%= config['root'] %>img/icon_wechat.png" width="0" height="0"> -->
 <!-- <img src="{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}" width="0" height="0"> -->
@@ -33,7 +29,6 @@ layout: layout
         </div>
     </div>
 </header>
-
 <!-- Post Content -->
 <article>
     <div class="container">
@@ -43,13 +38,9 @@ layout: layout
                 col-lg-8 col-lg-offset-2
                 col-md-10 col-md-offset-1
                 post-container">
-
                 <%- page.content %>
-
                 <hr>
-
                 <% if(page.url){%> <a href="<%- page.url %>">在 Github 上讨论</a><% }%>
-
                 <ul class="pager">
                     <% if (page.prev){ %>
                         <li class="previous">
