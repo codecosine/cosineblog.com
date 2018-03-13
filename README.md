@@ -1,9 +1,7 @@
 # cosine'blog
 
-[![GitHub release][github-release-image]][github-release-url]
-[![JavaScript Style Guide][linting-image]][linting-url]
-[![Travis][travis-image]][travis-url]
-[![Dependency Status][daviddm-image]][daviddm-url]
+!!博客维护升级中
+请左转查看writtings的文章
 
 ✏️ A blog based on GitHub Pages built with Hexo.
 
