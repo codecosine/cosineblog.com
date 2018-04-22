@@ -86,11 +86,19 @@ pagination_dir: page
 # category_generator:
 #   per_page: 0
 
+# Archives
+## 2: Enable pagination
+## 1: Disable pagination
+## 0: Fully Disable
+archive: 1
+category: 1
+tag: 1
+
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
 ## theme: cosineTheme
-theme: huxblog
+theme: TKL
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
