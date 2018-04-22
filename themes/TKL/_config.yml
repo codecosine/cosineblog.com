@@ -1,0 +1,47 @@
+# config
+cover: /img/bg2.jpg
+logo: /img/logo.png
+top_saying:
+- title: 
+- content: <span style='color:#fbe5df'>种一棵树最好的时间是10年前。</span>
+bottom_saying: <b>翩翩起舞的生活,生活中的你和我。</b>
+# Content
+excerpt_link: Read More
+
+rss: /atom.xml
+
+highlightjs: vs
+
+#Works
+works:
+- works_name: AAA
+  works_url: /
+- works_name: BBB
+  works_url: /atom.xml
+
+#duoshuo name
+duoshuo:
+
+#disqus name
+disqus_shortname:
+
+#fancybox
+fancybox: true
+
+#about  timeline
+timeline:
+- num: 1
+  word: 2014/06/12-Start
+- num: 2
+  word: 2014/11/29-XXX
+- num: 3
+  word: 2015/02/18-DDD
+- num: 4
+  word: More
+
+#Links
+links:
+- name: Kieran
+  link: http://go.kieran.top/
+- name: Name
+  link: http://domain.com/
