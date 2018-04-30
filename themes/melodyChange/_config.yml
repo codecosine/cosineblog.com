@@ -98,9 +98,9 @@ cdn:
 
 # Post info settings
 # ---------------
-avatar: 
+avatar: https://img-cosineblog.oss-cn-hangzhou.aliyuncs.com/avatar.png?Expires=1525101975&OSSAccessKeyId=TMP.AQFrzG8HsgwhBWamVRn6xb49tn0BKUaJ0ogqza2Oq-5RfBrKUb99hpYFfRluMC4CFQCDvJyGRNhPU3qpZPgL4JIGEPxlZAIVAILPgjDBju_Qh4zEqmy7AwX1KDUI&Signature=sGCAPi7jPeKSpB9wqgucu44qRik%3D
 
-top_img: /img/bg.jpg # false or url of img 
+top_img: https://img-cosineblog.oss-cn-hangzhou.aliyuncs.com/bg.jpg?Expires=1525101911&OSSAccessKeyId=TMP.AQFrzG8HsgwhBWamVRn6xb49tn0BKUaJ0ogqza2Oq-5RfBrKUb99hpYFfRluMC4CFQCDvJyGRNhPU3qpZPgL4JIGEPxlZAIVAILPgjDBju_Qh4zEqmy7AwX1KDUI&Signature=PZ2lK4SIRuOQHim9fBOkz%2FnZpCU%3D
 
 post_meta:
   date_type: created # created or updated 
