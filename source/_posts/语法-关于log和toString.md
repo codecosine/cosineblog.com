@@ -1,3 +1,6 @@
+---
+title: 语法-关于log和toString
+---
 ```javascript
 var arr = ["1","2","3","4"]
 console.log(arr) // chrome 显示上做了优化 (4) ["1", "2", "3", "4"]
